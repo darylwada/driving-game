@@ -10,3 +10,5 @@ class Car {
 var $img = document.createElement('img')
 $img.src = 'car-top-down.png'
 document.body.appendChild($img)
+
+var car = new Car($img)

@@ -26,7 +26,10 @@ class Car {
     this.$img.style = "top: " + this.location[1] + "px; " + "left: " + this.location[0] + "px;"
   }
   start() {
-    setInterval(() => this.move(), 16)
+    interval = setInterval(() => this.move(), 16)
+  }
+  stop() {
+    clearInterval(interval)
   }
 }
 
@@ -36,6 +39,7 @@ $img.src = 'car-top-down.png'
 $img.style = "top: 0px; left: 0px;"
 document.body.appendChild($img)
 
+var interval
 var car = new Car($img, 10, 'east', [0, 0])
 
 document.addEventListener('keydown', (event) => {
@@ -51,5 +55,8 @@ document.addEventListener('keydown', (event) => {
       break
     case 'ArrowLeft':
       car.turn('west')
+      break
+    case ' ':
+      car.start()
     }
 })

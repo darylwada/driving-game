@@ -26,13 +26,13 @@ h1 {
 
 .btn-container {
   position: relative;
-  width: 250px;
+  width: 270px;
   margin: 0 auto;
 }
 
 button {
   position: absolute;
-  width: 100px;
+  width: 120px;
   height: 30px;
   font-size: 1.2em;
 }

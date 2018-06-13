@@ -57,7 +57,7 @@ function renderCar(type) {
   var $img = document.createElement('img')
   $img.className = 'east'
   $img.style = "top: 0px; left: 0px;"
-  if (type === 'car') {
+  if (type === 'streetcar') {
     $img.src = 'car-top-down.png'
     car = new Car($img, 5, 'east', [0, 0])
   }

@@ -6,3 +6,7 @@ class Car {
     this.location = location
   }
 }
+
+var $img = document.createElement('img')
+$img.src = 'car-top-down.png'
+document.body.appendChild($img)

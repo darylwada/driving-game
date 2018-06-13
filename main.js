@@ -15,10 +15,10 @@ class Car {
         this.$img.className = 'south'
         break
       case 'east':
-        this.$img.classList.add('east')
+        this.$img.className = 'east'
         break
       case 'west':
-        this.$img.classList.add('west')
+        this.$img.className = 'west'
       }
   }
 }

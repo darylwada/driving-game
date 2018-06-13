@@ -37,6 +37,19 @@ class Car {
   }
 }
 
+class RaceCar extends Car {
+  constructor($img, speed, direction, location, nitros) {
+    super($img, speed, direction, location)
+    this.nitros = nitros
+    this.started = false
+    this.interval = null
+  }
+  nitro() {
+    this.speed *= 2
+    this.nitros--
+  }
+}
+
 var $img = document.createElement('img')
 $img.className = 'east'
 $img.src = 'car-top-down.png'

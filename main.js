@@ -1,11 +1,11 @@
 class Car {
-  constructor($img, speed, direction, location, started, interval) {
+  constructor($img, speed, direction, location) {
     this.$img = $img
     this.speed = speed
     this.direction = direction
     this.location = location
-    this.started = started
-    this.interval = interval
+    this.started = false
+    this.interval = null
   }
   turn(direction) {
     this.direction = direction
@@ -43,7 +43,7 @@ $img.src = 'car-top-down.png'
 $img.style = "top: 0px; left: 0px;"
 document.body.appendChild($img)
 
-var car = new Car($img, 10, 'east', [0, 0], false, null)
+var car = new Car($img, 10, 'east', [0, 0])
 
 document.addEventListener('keydown', (event) => {
   switch (event.key) {

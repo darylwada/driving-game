@@ -1,8 +1,5 @@
-body {
-  margin: 20px;
-}
-
 img {
+  position: absolute;
   max-height: 75px;
   max-width: 75px;
 }

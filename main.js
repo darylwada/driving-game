@@ -12,10 +12,10 @@ class Car {
   move() {
     switch (this.direction) {
       case 'north':
-        this.location[1] += this.speed
+        this.location[1] -= this.speed
         break
       case 'south':
-        this.location[1]-= this.speed
+        this.location[1] += this.speed
         break
       case 'east':
         this.location[0] += this.speed
@@ -23,14 +23,17 @@ class Car {
       case 'west':
         this.location[0] -= this.speed
     }
+    this.$img.style = "top: " + this.location[1] + "px; " + "left: " + this.location[0] + "px;"
   }
 }
 
 var $img = document.createElement('img')
+$img.className = 'east'
 $img.src = 'car-top-down.png'
+$img.style = "top: 0px; left: 0px;"
 document.body.appendChild($img)
 
-var car = new Car($img, 1, 'east', [0, 0])
+var car = new Car($img, 10, 'east', [0, 0])
 
 document.addEventListener('keydown', (event) => {
   switch (event.key) {

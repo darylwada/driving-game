@@ -25,6 +25,9 @@ class Car {
     }
     this.$img.style = "top: " + this.location[1] + "px; " + "left: " + this.location[0] + "px;"
   }
+  start() {
+    setInterval(() => this.move(), 16)
+  }
 }
 
 var $img = document.createElement('img')

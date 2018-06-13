@@ -7,19 +7,7 @@ class Car {
   }
   turn(direction) {
     this.direction = direction
-    switch (this.direction) {
-      case 'north':
-        this.$img.className = 'north'
-        break
-      case 'south':
-        this.$img.className = 'south'
-        break
-      case 'east':
-        this.$img.className = 'east'
-        break
-      case 'west':
-        this.$img.className = 'west'
-      }
+    this.$img.className = direction
   }
 }
 

@@ -45,8 +45,10 @@ class RaceCar extends Car {
     this.interval = null
   }
   nitro() {
-    this.speed *= 2
-    this.nitros--
+    if (this.nitros > 0) {
+      this.speed *= 2
+      this.nitros--
+    }
   }
 }
 
@@ -57,11 +59,11 @@ function renderCar(type) {
   $img.style = "top: 0px; left: 0px;"
   if (type === 'car') {
     $img.src = 'car-top-down.png'
-    car = new Car($img, 10, 'east', [0, 0])
+    car = new Car($img, 5, 'east', [0, 0])
   }
   else if (type === 'racecar') {
     $img.src = 'racecar-top-down.png'
-    car = new RaceCar($img, 10, 'east', [0, 0], 3)
+    car = new RaceCar($img, 5, 'east', [0, 0], 3)
   }
   document.body.appendChild($img)
 }

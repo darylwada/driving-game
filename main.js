@@ -1,9 +1,11 @@
 class Car {
-  constructor($img, speed, direction, location) {
+  constructor($img, speed, direction, location, started, interval) {
     this.$img = $img
     this.speed = speed
     this.direction = direction
     this.location = location
+    this.started = started
+    this.interval = interval
   }
   turn(direction) {
     this.direction = direction
@@ -26,10 +28,12 @@ class Car {
     this.$img.style = "top: " + this.location[1] + "px; " + "left: " + this.location[0] + "px;"
   }
   start() {
-    interval = setInterval(() => this.move(), 16)
+    this.interval = setInterval(() => this.move(), 16)
+    this.started = true
   }
   stop() {
-    clearInterval(interval)
+    clearInterval(this.interval)
+    this.started = false
   }
 }
 
@@ -39,8 +43,7 @@ $img.src = 'car-top-down.png'
 $img.style = "top: 0px; left: 0px;"
 document.body.appendChild($img)
 
-var interval
-var car = new Car($img, 10, 'east', [0, 0])
+var car = new Car($img, 10, 'east', [0, 0], false, null)
 
 document.addEventListener('keydown', (event) => {
   switch (event.key) {
@@ -57,6 +60,6 @@ document.addEventListener('keydown', (event) => {
       car.turn('west')
       break
     case ' ':
-      car.start()
+      car.started ? car.stop() : car.start()
     }
 })

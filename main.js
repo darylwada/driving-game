@@ -4,6 +4,8 @@ class Car {
     this.speed = speed
     this.direction = direction
     this.location = location
+    this.started = false
+    this.interval = null
   }
   turn(direction) {
     this.direction = direction
@@ -26,7 +28,12 @@ class Car {
     this.$img.style = "top: " + this.location[1] + "px; " + "left: " + this.location[0] + "px;"
   }
   start() {
-    setInterval(() => this.move(), 16)
+    this.interval = setInterval(() => this.move(), 16)
+    this.started = true
+  }
+  stop() {
+    clearInterval(this.interval)
+    this.started = false
   }
 }
 
@@ -51,5 +58,8 @@ document.addEventListener('keydown', (event) => {
       break
     case 'ArrowLeft':
       car.turn('west')
+      break
+    case ' ':
+      car.started ? car.stop() : car.start()
     }
 })

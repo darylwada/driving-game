@@ -19,3 +19,28 @@ img {
 .west {
   transform: rotate(180deg);
 }
+
+h1 {
+  text-align: center;
+}
+
+.btn-container {
+  position: relative;
+  width: 250px;
+  margin: 0 auto;
+}
+
+button {
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  font-size: 1.2em;
+}
+
+#btn-car {
+  left: 0;
+}
+
+#btn-racecar {
+  right: 0;
+}

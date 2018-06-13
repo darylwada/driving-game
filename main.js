@@ -50,13 +50,30 @@ class RaceCar extends Car {
   }
 }
 
-var $img = document.createElement('img')
-$img.className = 'east'
-$img.src = 'car-top-down.png'
-$img.style = "top: 0px; left: 0px;"
-document.body.appendChild($img)
+function renderCar(type) {
+  document.body.innerHTML = ''
+  var $img = document.createElement('img')
+  $img.className = 'east'
+  $img.style = "top: 0px; left: 0px;"
+  if (type === 'car') {
+    $img.src = 'car-top-down.png'
+    car = new Car($img, 10, 'east', [0, 0])
+  }
+  else if (type === 'racecar') {
+    $img.src = 'racecar-top-down.png'
+    car = new RaceCar($img, 10, 'east', [0, 0], 3)
+  }
+  document.body.appendChild($img)
+}
 
-var car = new Car($img, 10, 'east', [0, 0])
+var car
+
+var $btns = document.querySelectorAll('button')
+  $btns.forEach(btn => {
+  btn.addEventListener('click', (event) => {
+    renderCar(event.target.value)
+  })
+})
 
 document.addEventListener('keydown', (event) => {
   switch (event.key) {

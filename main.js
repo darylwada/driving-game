@@ -89,6 +89,9 @@ document.addEventListener('keydown', (event) => {
     case 'ArrowLeft':
       car.turn('west')
       break
+    case 'Enter':
+      car.nitro()
+      break
     case ' ':
       car.started ? car.stop() : car.start()
     }

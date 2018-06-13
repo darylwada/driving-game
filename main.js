@@ -70,8 +70,7 @@ function renderCar(type) {
 
 var car
 
-var $btns = document.querySelectorAll('button')
-  $btns.forEach(btn => {
+document.querySelectorAll('button').forEach(btn => {
   btn.addEventListener('click', (event) => {
     renderCar(event.target.value)
   })

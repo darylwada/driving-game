@@ -52,27 +52,34 @@ class RaceCar extends Car {
   }
 }
 
+function updateCarObj(type) {
+  var $img = document.querySelector('img')
+  car = type === 'streetcar'
+    ? new Car($img, 5, 'east', [0, 0])
+    : new RaceCar($img, 5, 'east', [0, 0], 3)
+}
+
 function renderCar(type) {
-  document.body.innerHTML = ''
   var $img = document.createElement('img')
   $img.className = 'east'
   $img.style = "top: 0px; left: 0px;"
-  if (type === 'streetcar') {
-    $img.src = 'car-top-down.png'
-    car = new Car($img, 5, 'east', [0, 0])
-  }
-  else if (type === 'racecar') {
-    $img.src = 'racecar-top-down.png'
-    car = new RaceCar($img, 5, 'east', [0, 0], 3)
-  }
-  document.body.appendChild($img)
+  $img.src = type === 'streetcar'
+    ? 'car-top-down.png'
+    : 'racecar-top-down.png'
+  return $img
 }
 
-var car
+function renderApp(type) {
+  document.body.innerHTML = ''
+  document.body.appendChild(renderCar(type))
+}
+
+var car = {}
 
 document.querySelectorAll('button').forEach(btn => {
   btn.addEventListener('click', (event) => {
-    renderCar(event.target.value)
+    renderApp(event.target.value)
+    updateCarObj(event.target.value)
   })
 })
 

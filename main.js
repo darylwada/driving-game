@@ -74,38 +74,43 @@ function createCarImage(carType) {
   return $carImage
 }
 
-var car = {}
 
-document.querySelectorAll('button').forEach(btn => {
-  btn.addEventListener('click', (event) => {
-    var carType = event.target.value
-    var $carImage = createCarImage(carType)
+window.addEventListener('DOMContentLoaded', function (event) {
 
-    car = createCar($carImage, carType)
+  var car = {}
 
-    document.body.innerHTML = ''
-    document.body.appendChild($carImage)
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', (event) => {
+      var carType = event.target.value
+      var $carImage = createCarImage(carType)
+
+      car = createCar($carImage, carType)
+
+      document.body.innerHTML = ''
+      document.body.appendChild($carImage)
+    })
   })
-})
 
-document.addEventListener('keydown', (event) => {
-  switch (event.key) {
-    case 'ArrowUp':
-      car.turn('north')
-      break
-    case 'ArrowDown':
-      car.turn('south')
-      break
-    case 'ArrowRight':
-      car.turn('east')
-      break
-    case 'ArrowLeft':
-      car.turn('west')
-      break
-    case 'Enter':
-      car.nitro()
-      break
-    case ' ':
-      car.started ? car.stop() : car.start()
-    }
+  document.addEventListener('keydown', (event) => {
+    switch (event.key) {
+      case 'ArrowUp':
+        car.turn('north')
+        break
+      case 'ArrowDown':
+        car.turn('south')
+        break
+      case 'ArrowRight':
+        car.turn('east')
+        break
+      case 'ArrowLeft':
+        car.turn('west')
+        break
+      case 'Enter':
+        car.nitro()
+        break
+      case ' ':
+        car.started ? car.stop() : car.start()
+      }
+  })
+
 })

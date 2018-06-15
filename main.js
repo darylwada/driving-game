@@ -63,7 +63,7 @@ function createCar($carImage, carType) {
 }
 
 function createCarImage(carType) {
-  var $carImage = document.createElement('img')
+  const $carImage = document.createElement('img')
 
   $carImage.className = 'east'
   $carImage.style = "top: 0px; left: 0px;"
@@ -74,15 +74,18 @@ function createCarImage(carType) {
   return $carImage
 }
 
+function createObstacle() {
+
+}
 
 window.addEventListener('DOMContentLoaded', function (event) {
 
-  var car = {}
+  let car = {}
 
   document.querySelectorAll('button').forEach(btn => {
     btn.addEventListener('click', (event) => {
-      var carType = event.target.value
-      var $carImage = createCarImage(carType)
+      const carType = event.target.value
+      const $carImage = createCarImage(carType)
 
       car = createCar($carImage, carType)
 

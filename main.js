@@ -74,13 +74,21 @@ function createCarImage(carType) {
   return $carImage
 }
 
-function createObstacle() {
+function createObstacleImage() {
+  const $obstacleImage = document.createElement('img')
+  const windowHeight = window.innerHeight
+  const windowWidth = window.innerWidth
 
+  $obstacleImage.src = 'obstacle.jpg'
+  $obstacleImage.style.top = `${Math.round(Math.random() * windowHeight)}px`
+  $obstacleImage.style.left = `${Math.round(Math.random() * windowWidth)}px`
+
+  return $obstacleImage
 }
 
-window.addEventListener('DOMContentLoaded', function (event) {
+let car = {}
 
-  let car = {}
+window.addEventListener('DOMContentLoaded', (event) => {
 
   document.querySelectorAll('button').forEach(btn => {
     btn.addEventListener('click', (event) => {
@@ -91,6 +99,11 @@ window.addEventListener('DOMContentLoaded', function (event) {
 
       document.body.innerHTML = ''
       document.body.appendChild($carImage)
+
+      for (let i = 0; i < 10; i++) {
+        const $obstacleImage = createObstacleImage()
+        document.body.appendChild($obstacleImage)
+      }
     })
   })
 
